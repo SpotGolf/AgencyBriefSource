@@ -12,7 +12,7 @@ Run every git command from the project root, `/Users/bpontarelli/dev/SpotGolf/Sp
 ## Flow
 
 ```
-feature branch ──commit all──▶ main: squash merge ──▶ push ──▶ delete branch
+feature branch ──commit all──▶ main: squash merge ──▶ push ──▶ delete branch ──▶ delete branch simulators
 ```
 
 ## Steps
@@ -92,6 +92,14 @@ git ls-remote --heads origin <branch>
 - `-D` is required: after a squash merge, git does not see the branch as merged.
 - If `git ls-remote` lists the branch, also run `git push origin --delete <branch>`.
 
-### 6. Report
+### 6. Delete the branch's simulators
 
-State the squash commit hash and that the branch was deleted. Nothing else.
+Skip this step if the project's instructions (`CLAUDE.md`) do not give each session or branch its own simulators.
+
+- Find the simulators the project's instructions name for `<branch>`, using their naming rule.
+- Delete each one with `xcrun simctl delete <udid>`. Deleting a booted simulator shuts it down first.
+- Never delete simulators the instructions say are shared, such as templates or devices kept for manual testing.
+
+### 7. Report
+
+State the squash commit hash, that the branch was deleted, and which simulators were deleted, if any. Nothing else.
