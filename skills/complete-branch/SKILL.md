@@ -7,7 +7,7 @@ description: Use when the user asks to complete, finish, land, or squash merge t
 
 Land the current feature branch on `main` and remove it.
 
-Run every git command from the project root, `/Users/bpontarelli/dev/SpotGolf/SpotGolf`.
+Run every git command from the root of the current project's repository: the directory that `git rev-parse --show-toplevel` prints from the session's working directory.
 
 ## Flow
 
