@@ -44,7 +44,11 @@ git commit -m "<conventional message>"
 - `git add -A` stages every modified, deleted, and untracked file that `.gitignore` does not exclude. Do not skip files by hand.
 - Use a conventional commit message that describes the uncommitted work.
 
-### 3. Squash merge to main
+### 3. Run the full test suite
+
+Before merging, run the full test suite on the branch. If any tests fail, stop immediately and notify the user.
+
+### 4. Squash merge to main
 
 ```bash
 git checkout main
@@ -74,7 +78,7 @@ MSG
 - `<type>` is `feat` for a new feature, `fix` for a bug fix, otherwise `chore`, `refactor`, `docs`, or `test`.
 - Keep the subject line at 72 characters or fewer. Body lines have no limit.
 
-### 4. Push main
+### 5. Push main
 
 ```bash
 git push origin main
@@ -82,7 +86,7 @@ git push origin main
 
 If the push fails, stop and report. Do not delete the branch.
 
-### 5. Delete the branch
+### 6. Delete the branch
 
 ```bash
 git branch -D <branch>
@@ -92,7 +96,7 @@ git ls-remote --heads origin <branch>
 - `-D` is required: after a squash merge, git does not see the branch as merged.
 - If `git ls-remote` lists the branch, also run `git push origin --delete <branch>`.
 
-### 6. Delete the branch's simulators
+### 7. Delete the branch's simulators
 
 Skip this step if the project's instructions (`CLAUDE.md`) do not give each session or branch its own simulators.
 
@@ -100,6 +104,6 @@ Skip this step if the project's instructions (`CLAUDE.md`) do not give each sess
 - Delete each one with `xcrun simctl delete <udid>`. Deleting a booted simulator shuts it down first.
 - Never delete simulators the instructions say are shared, such as templates or devices kept for manual testing.
 
-### 7. Report
+### 8. Report
 
 State the squash commit hash, that the branch was deleted, and which simulators were deleted, if any. Nothing else.
