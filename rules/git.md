@@ -11,6 +11,8 @@ When using Git for the project, follow these guidelines.
 
 Never commit directly to `main`. All work happens on a feature branch created from `main`; `main` only ever receives changes through a squash merge. This is a standard to follow by reading this file — it is intentionally not enforced by a hook.
 
+Versioning and releases are the exception. A version bump for a release is committed directly on `main`, and the release tag is created on `main`, with no feature branch or squash merge.
+
 Branch names should be descriptive and follow the format `<type>/<short-description>`. The `type` is the conventional commit type for the work, usually `feat`, `fix`, or `chore`.
 
 ## Squash merges
